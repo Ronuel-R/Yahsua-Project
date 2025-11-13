@@ -5,10 +5,6 @@ from rest_framework.response import Response
 from rest_framework import viewsets, status
 
 class TaskView(viewsets.ViewSet):
-    """
-    A simple ViewSet for listing, creating, updating, and deleting tasks.
-    """
-
     def list(self, request):
         tasks = TaskModel.objects.all().order_by('-created_at')
         serializer = TaskSerializer(tasks, many=True)
